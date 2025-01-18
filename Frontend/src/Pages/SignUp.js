@@ -117,7 +117,6 @@ function SignUp() {
                             id="email"
                             placeholder="Enter your email"
                             onChange={handleChange}
-                            value={signup.email}
                         />
                     </div>
 
@@ -132,7 +131,7 @@ function SignUp() {
                                 id="password"
                                 placeholder="Enter your password"
                                 onChange={handleChange}
-                                value={signup.password}
+                                required
                             />
                             <button
                                 type="button"

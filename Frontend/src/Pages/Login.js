@@ -100,7 +100,6 @@ function Login() {
                             id="email"
                             placeholder="Enter your email"
                             onChange={handleChange}
-                            value={login.email}
                         />
                     </div>
 
@@ -115,7 +114,7 @@ function Login() {
                                 id="password"
                                 placeholder="Enter your password"
                                 onChange={handleChange}
-                                value={login.password}
+                                required
                             />
                             <button
                                 type="button"
