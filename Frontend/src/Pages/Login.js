@@ -6,6 +6,8 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 import { BiHide } from "react-icons/bi";
 import { BiShowAlt } from "react-icons/bi";
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 
 
 
@@ -92,7 +94,7 @@ function Login() {
             </h1>
 
 
-            <form className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg m-10" onSubmit={handleLogin}>
+            <form className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg m-10 w-full" onSubmit={handleLogin}>
                 <div className="grid grid-cols-1 gap-5">
                     <ToastContainer />
 
@@ -103,7 +105,7 @@ function Login() {
                             size={16}
                         />
                         <input
-                            className="block w-full pl-8 border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            className="block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-gray-300 focus:border-gray-300"
                             type="email"
                             id="email"
                             placeholder="Enter your email"
@@ -118,7 +120,7 @@ function Login() {
                             size={16}
                         />
                         <input
-                            className="block w-full pl-8 border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            className="block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                             type={showPassword ? 'text' : 'password'}
                             id="password"
                             placeholder="Enter your password"
@@ -136,9 +138,16 @@ function Login() {
 
                     <div>
 
-                        <button onSubmit={handleLogin} className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 mx-auto block m-5">
-                            Login
-                        </button>
+                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold p-1 w-40 rounded-3xl shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75  flex items-center justify-between">
+                            <span className="ml-2 p-1">Login</span>
+                            <button
+                                onClick={handleLogin}
+                                className="rounded-full bg-blue-500 text-white font-bold p-2"
+                            >
+                                <FaLongArrowAltRight size={16} />
+                            </button>
+                        </div>
+
 
                     </div>
                 </div>
