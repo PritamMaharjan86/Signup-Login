@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { MdOutlineAlternateEmail } from "react-icons/md";
+import { TbLockPassword } from "react-icons/tb";
+import { BiHide } from "react-icons/bi";
+import { BiShowAlt } from "react-icons/bi";
+
+
+
 
 function Login() {
 
@@ -90,12 +97,13 @@ function Login() {
                     <ToastContainer />
 
 
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                            Email
-                        </label>
+                    <div className="relative w-full">
+                        <MdOutlineAlternateEmail
+                            className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
+                            size={16}
+                        />
                         <input
-                            className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            className="block w-full pl-8 border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                             type="email"
                             id="email"
                             placeholder="Enter your email"
@@ -103,29 +111,31 @@ function Login() {
                         />
                     </div>
 
+                    <div className="relative w-full">
+
+                        <TbLockPassword
+                            className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
+                            size={16}
+                        />
+                        <input
+                            className="block w-full pl-8 border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            type={showPassword ? 'text' : 'password'}
+                            id="password"
+                            placeholder="Enter your password"
+                            onChange={handleChange}
+                            required
+                        />
+                        <button
+                            type="button"
+                            onClick={PasswordVisible}
+                            className="absolute inset-y-0 right-0 flex items-center px-3 text-sm text-gray-600 focus:outline-none"
+                        >
+                            {showPassword ? (<BiShowAlt size={16} />) : (<BiHide size={16} />)}
+                        </button>
+                    </div>
+
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                            Password
-                        </label>
-                        <div className="relative">
-                            <input
-                                className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                                type={showPassword ? 'text' : 'password'}
-                                id="password"
-                                placeholder="Enter your password"
-                                onChange={handleChange}
-                                required
-                            />
-                            <button
-                                type="button"
-                                onClick={PasswordVisible}
-                                className="absolute inset-y-0 right-0 flex items-center px-3 text-sm text-gray-600 focus:outline-none"
-                            >
-                                {showPassword ? 'Hide' : 'Show'}
-                            </button>
 
-
-                        </div>
                         <button onSubmit={handleLogin} className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 mx-auto block m-5">
                             Login
                         </button>
