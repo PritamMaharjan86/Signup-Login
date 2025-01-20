@@ -92,11 +92,10 @@ function Login() {
                 <div className="bg-layer2 absolute inset-0"></div>
                 <div className="bg-layer3 absolute inset-0"></div>
             </div>
-            <div className="w-1/2 mx-auto p-6 bg-white shadow-lg rounded-2xl m-10">
+            <div className="w-1/2 mx-auto p-6 bg-white shadow-lg rounded-2xl m-10 flex flex-row">
 
-                <h1 className="text-4xl font-extrabold text-black text-left drop-shadow-lg ml-7 mt-10">LogIn</h1>
-
-                <form className="w-1/2  p-2 bg-white m-5" onSubmit={handleLogin}>
+                <form className="w-1/2  p-2 bg-white m-5 " onSubmit={handleLogin}>
+                    <h1 className="text-4xl font-extrabold text-black text-left drop-shadow-lg p-4">LogIn</h1>
                     <div className="grid grid-cols-1 gap-5">
                         <ToastContainer />
                         <div className="relative w-full">
@@ -159,7 +158,14 @@ function Login() {
                         </p>
                     </div>
                 </form>
+                <div className='h-80 w-80 mt-20 '>
+
+                    <img src="https://res.cloudinary.com/dedpvue13/image/upload/v1737366683/login-and-password-concept-3d-illustration-computer-and-account-login-and-password-form-page-on-screen-sign-in-to-account-user-authorization-login-authentication-page-concept-png_q57jgi.webp" alt="image" />
+
+
+                </div>
             </div>
+
         </div>
     );
 }
