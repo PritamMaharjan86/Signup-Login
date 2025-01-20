@@ -92,70 +92,74 @@ function Login() {
                 <div className="bg-layer2 absolute inset-0"></div>
                 <div className="bg-layer3 absolute inset-0"></div>
             </div>
-            <h1 className="text-5xl font-extrabold text-white text-center drop-shadow-lg my-8">Login</h1>
-            <form className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg m-10 w-full" onSubmit={handleLogin}>
-                <div className="grid grid-cols-1 gap-5">
-                    <ToastContainer />
-                    <div className="relative w-full">
-                        <MdOutlineAlternateEmail
-                            className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
-                            size={16}
-                        />
-                        <input
-                            className={`block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${emailError ? 'border-red-500' : validateEmail ? 'border-green-500' : 'border-gray-300'
-                                }`}
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            onChange={handleChange}
-                        />
-                        {emailError && <p className="text-red-500 text-sm mt-1">Invalid email format</p>}
-                    </div>
-                    <div className="relative w-full">
-                        <TbLockPassword
-                            className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
-                            size={16}
-                        />
-                        <input
-                            className="block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                            type={showPassword ? 'text' : 'password'}
-                            id="password"
-                            placeholder="Enter your password"
-                            onChange={handleChange}
-                            required
-                        />
-                        <button
-                            type="button"
-                            onClick={PasswordVisible}
-                            className="absolute inset-y-0 right-0 flex items-center px-3 text-sm text-gray-600 focus:outline-none"
-                        >
-                            {showPassword ? <BiShowAlt size={16} /> : <BiHide size={16} />}
-                        </button>
-                    </div>
-                    <div>
-                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold p-1 w-40 rounded-3xl shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 flex items-center justify-between">
-                            <span className="ml-2 p-1">Login</span>
+            <div className="w-1/2 mx-auto p-6 bg-white shadow-lg rounded-2xl m-10">
+
+                <h1 className="text-4xl font-extrabold text-black text-left drop-shadow-lg ml-7 mt-10">LogIn</h1>
+
+                <form className="w-1/2  p-2 bg-white m-5" onSubmit={handleLogin}>
+                    <div className="grid grid-cols-1 gap-5">
+                        <ToastContainer />
+                        <div className="relative w-full">
+                            <MdOutlineAlternateEmail
+                                className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
+                                size={16}
+                            />
+                            <input
+                                className={`block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${emailError ? 'border-red-500' : validateEmail ? 'border-green-500' : 'border-gray-300'
+                                    }`}
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                onChange={handleChange}
+                            />
+                            {emailError && <p className="text-red-500 text-sm mt-1">Invalid email format</p>}
+                        </div>
+                        <div className="relative w-full">
+                            <TbLockPassword
+                                className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
+                                size={16}
+                            />
+                            <input
+                                className="block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                type={showPassword ? 'text' : 'password'}
+                                id="password"
+                                placeholder="Enter your password"
+                                onChange={handleChange}
+                                required
+                            />
                             <button
-                                type="submit"
-                                className="rounded-full bg-blue-500 text-white font-bold p-2"
+                                type="button"
+                                onClick={PasswordVisible}
+                                className="absolute inset-y-0 right-0 flex items-center px-3 text-sm text-gray-600 focus:outline-none"
                             >
-                                <FaLongArrowAltRight size={16} />
+                                {showPassword ? <BiShowAlt size={16} /> : <BiHide size={16} />}
                             </button>
                         </div>
+                        <div>
+                            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold p-1 w-40 rounded-3xl shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 flex items-center justify-between">
+                                <span className="ml-2 p-1">Login</span>
+                                <button
+                                    type="submit"
+                                    className="rounded-full bg-blue-500 text-white font-bold p-2"
+                                >
+                                    <FaLongArrowAltRight size={16} />
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="mt-4 text-center">
-                    <p className="text-sm text-gray-600">
-                        Don't have an account?
-                        <a
-                            href="/signup"
-                            className="text-blue-600 hover:text-blue-800 font-semibold ml-1"
-                        >
-                            Please signup here
-                        </a>
-                    </p>
-                </div>
-            </form>
+                    <div className="mt-4 text-center">
+                        <p className="text-sm text-gray-600">
+                            Don't have an account?
+                            <a
+                                href="/signup"
+                                className="text-blue-600 hover:text-blue-800 font-semibold ml-1"
+                            >
+                                Please signup here
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
