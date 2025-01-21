@@ -135,11 +135,11 @@ function Login() {
                             </button>
                         </div>
                         <div>
-                            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold p-1 w-40 rounded-3xl shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 flex items-center justify-between">
+                            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold p-1 w-40 rounded-3xl shadow-lg flex items-center justify-between">
                                 <span className="ml-2 p-1">Login</span>
                                 <button
                                     type="submit"
-                                    className="rounded-full bg-blue-500 text-white font-bold p-2"
+                                    className="rounded-full text-white font-bold p-2 bg-gradient-to-r from-blue-400 to-blue-500  hover:from-blue-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 "
                                 >
                                     <FaLongArrowAltRight size={16} />
                                 </button>
