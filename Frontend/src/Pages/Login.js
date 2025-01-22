@@ -92,7 +92,7 @@ function Login() {
                 <div className="bg-layer2 absolute inset-0"></div>
                 <div className="bg-layer3 absolute inset-0"></div>
             </div>
-            <div className="w-1/2 mx-auto p-6 bg-white shadow-lg rounded-2xl m-10 flex flex-row">
+            <div className="w-9/12 mx-auto p-6 bg-white shadow-lg rounded-2xl m-10 flex flex-row">
 
                 <form className="w-1/2  p-2 bg-white m-5 " onSubmit={handleLogin}>
                     <h1 className="text-4xl font-extrabold text-black text-left drop-shadow-lg p-4">LogIn</h1>

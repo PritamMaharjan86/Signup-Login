@@ -53,7 +53,7 @@ function SignUp() {
                 }, 1000)
             }
             else {
-                // If an error exists, show the error message from the server response
+               
                 if (message) {
                     toast.warning(message);
                 } else if (error && error.details) {
@@ -82,6 +82,8 @@ function SignUp() {
                 <div class="bg-layer2 absolute inset-0"></div>
                 <div class="bg-layer3 absolute inset-0"></div>
             </div>
+
+            
             <h1 className="text-5xl font-extrabold text-white text-center drop-shadow-lg my-8">
                 Signup
             </h1>
