@@ -14,6 +14,7 @@ const corsConfig = {
 require('dotenv').config();
 require('./Models/Database');
 
+app.use(express.json()); 
 
 app.get('/server', (req, res) => {
     res.send('Server is running now...');
