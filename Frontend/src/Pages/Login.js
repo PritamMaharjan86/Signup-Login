@@ -160,7 +160,7 @@ function Login() {
                 </form>
                 <div className='h-80 w-80 mt-20 '>
 
-                    <img src="https://res.cloudinary.com/dedpvue13/image/upload/v1737366683/login-and-password-concept-3d-illustration-computer-and-account-login-and-password-form-page-on-screen-sign-in-to-account-user-authorization-login-authentication-page-concept-png_q57jgi.webp" alt="image" />
+                    <img src="https://res.cloudinary.com/dedpvue13/image/upload/v1737366683/signup%20and%20login/login-and-password-concept-3d-illustration-computer-and-account-login-and-password-form-page-on-screen-sign-in-to-account-user-authorization-login-authentication-page-concept-png_q57jgi.webp" alt="image" />
 
 
                 </div>
