@@ -119,6 +119,7 @@ function SignUp() {
                             id="email"
                             placeholder="Enter your email"
                             onChange={handleChange}
+                            value={signup.email}
                         />
                     </div>
 
