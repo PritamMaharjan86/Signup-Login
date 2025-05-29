@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -8,7 +8,7 @@ function Home() {
 
     useEffect(() => {
         setLoggedIn(localStorage.getItem('loggedIn'));
-    })
+    }, []);
 
     const handleLogout = (e) => {
         localStorage.removeItem('token');

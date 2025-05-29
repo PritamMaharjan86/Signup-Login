@@ -2,40 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
-    @keyframes slide-left-right {
-      0% {
-        transform: translateX(-50%);
-      }
-      100% {
-        transform: translateX(50%);
-      }
+  @keyframes slide-left-right {
+    0% {
+      transform: translateX(-50%);
     }
-    @keyframes slide-right-left {
-      0% {
-        transform: translateX(50%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-    
-    .bg-layer1 {
-      background-image: linear-gradient(120deg, #f01621 0%, #fd3c07 100%);
-      opacity: 0.7;
-      animation: slide-left-right 6s ease-in-out infinite alternate;
-    }
-  
-    .bg-layer2 {
-      background-image: linear-gradient(240deg, #0762f3 0%, #07a5ee 100%);
-      opacity: 0.5;
-      animation: slide-right-left 8s ease-in-out infinite alternate;
-    }
-  
-    .bg-layer3 {
-      background-image: linear-gradient(360deg, #f08706 0%, #c109ef 100%);
-      opacity: 0.3;
-      animation: slide-left-right 10s ease-in-out infinite alternate-reverse;
+    100% {
+      transform: translateX(50%);
     }
   }
+  @keyframes slide-right-left {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .bg-layer1 {
+    background-image: linear-gradient(120deg, #f01621 0%, #fd3c07 100%);
+    opacity: 0.7;
+    animation: slide-left-right 6s ease-in-out infinite alternate;
+  }
+
+  .bg-layer2 {
+    background-image: linear-gradient(240deg, #0762f3 0%, #07a5ee 100%);
+    opacity: 0.5;
+    animation: slide-right-left 8s ease-in-out infinite alternate;
+  }
+
+  .bg-layer3 {
+    background-image: linear-gradient(360deg, #f08706 0%, #c109ef 100%);
+    opacity: 0.3;
+    animation: slide-left-right 10s ease-in-out infinite alternate-reverse;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
