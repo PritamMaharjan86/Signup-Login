@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { MdOutlineAlternateEmail } from "react-icons/md";
+import { TbLockPassword } from "react-icons/tb";
+import { BiHide, BiShowAlt } from "react-icons/bi";
+import { FaRegUserCircle } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import Loader from '../Components/Loader';
 
 function SignUp() {
 
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const PasswordVisible = () => {
         setShowPassword(!showPassword);
@@ -27,6 +34,7 @@ function SignUp() {
 
     const handleSignup = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const { name, email, password } = signup;
 
         if (!name || !email || !password) {
@@ -48,19 +56,23 @@ function SignUp() {
             const { success, error, message } = result;
             if (success) {
                 toast.success("Access Granted");
+                setLoading(false);
                 setTimeout(() => {
                     navigate('/login');
                 }, 1000)
             }
             else {
-               
+
                 if (message) {
                     toast.warning(message);
+                    setLoading(false);
                 } else if (error && error.details) {
                     const details = error.details[0].message;
                     toast.error(details);
+                    setLoading(false);
                 } else {
                     toast.error("Something went wrong. Please try again.");
+                    setLoading(false);
                 }
             }
 
@@ -69,6 +81,7 @@ function SignUp() {
 
         catch (error) {
             toast.error("All the fields are required to be filled!");
+            setLoading(false);
 
         }
 
@@ -76,91 +89,99 @@ function SignUp() {
 
 
     return (
-        <div>
-            <div class="fixed inset-0 z-[-1] overflow-hidden">
-                <div class="bg-layer1 absolute inset-0"></div>
-                <div class="bg-layer2 absolute inset-0"></div>
-                <div class="bg-layer3 absolute inset-0"></div>
-            </div>
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
 
-            
-            <h1 className="text-5xl font-extrabold text-white text-center drop-shadow-lg my-8">
-                Signup
-            </h1>
+            {loading ? <Loader /> : <p></p>}
+            <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 sm:p-10">
+                <h1 className="text-5xl font-extrabold text-black mb-2 drop-shadow-lg text-center sm:text-left">
+                    Signup
+                </h1>
 
-            <form className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg m-10" onSubmit={handleSignup}>
+                <form className="w-full" onSubmit={handleSignup}>
 
-                <div className="grid grid-cols-1 gap-5">
+                    <div className="grid grid-cols-1 gap-5">
 
-                    <ToastContainer />
-                    <div>
+                        <ToastContainer />
 
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                            Name
-                        </label>
-                        <input
-                            className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                            type="text"
-                            id="name"
-                            autoFocus
-                            placeholder="Enter your name"
-                            onChange={handleChange}
-                            value={signup.name}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                            Email
-                        </label>
-                        <input
-                            className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            onChange={handleChange}
-                            value={signup.email}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                            Password
-                        </label>
-                        <div className="relative">
+                        <div className="relative w-full mt-4">
+                            <FaRegUserCircle
+                                className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
+                                size={20}
+                            />
                             <input
-                                className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                className={`block w-full pl-10 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
+                                type="text"
+                                id="name"
+                                autofocus
+                                placeholder="Enter your name"
+                                onChange={handleChange}
+                                value={signup.name}
+                            />
+                        </div>
+
+                        <div className="relative w-full mt-4">
+                            <MdOutlineAlternateEmail
+                                className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
+                                size={20}
+                            />
+                            <input
+                                className={`block w-full pl-10 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                onChange={handleChange}
+                                value={signup.email}
+                            />
+
+                        </div>
+
+
+                        <div className="relative w-full mt-4">
+                            <TbLockPassword
+                                className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
+                                size={20}
+                            />
+                            <input
+                                className="block w-full pl-10 border-b-4 p-3 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
                                 type={showPassword ? 'text' : 'password'}
                                 id="password"
                                 placeholder="Enter your password"
                                 onChange={handleChange}
                                 required
+                                autoComplete="current-password"
                             />
                             <button
                                 type="button"
                                 onClick={PasswordVisible}
-                                className="absolute inset-y-0 right-0 flex items-center px-3 text-sm text-gray-600 focus:outline-none"
+                                className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-600 focus:outline-none"
+                                aria-label={showPassword ? 'Hide password' : 'Show password'}
                             >
-                                {showPassword ? 'Hide' : 'Show'}
+                                {showPassword ? <BiShowAlt size={20} /> : <BiHide size={20} />}
                             </button>
 
                         </div>
-                        <button onSubmit={handleSignup} className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 mx-auto block m-5">
-                            SignUp
-                        </button>
+
+                        <div className="flex justify-center sm:justify-start mt-4 mb-4">
+                            <button
+                                onSubmit={handleSignup}
+                                className="bg-blue-500 text-white font-bold px-6 py-3 rounded-3xl shadow-lg flex items-center gap-2 hover:from-blue-600 hover:to-blue-700 transition"
+                            >
+                                <span>SignUp</span>
+                                <FaLongArrowAltRight size={18} />
+                            </button>
+                        </div>
 
                     </div>
-                </div>
-                <div className="mt-4 text-center">
-                    <p className="text-sm text-gray-600">
-                        Already have an account?
-                        <a href="/login" className="text-blue-600 hover:text-blue-800 font-semibold ml-1">
-                            Please login here
-                        </a>
-                    </p>
-                </div>
-            </form>
-
+                    <div className="mt-4 text-center">
+                        <p className="text-sm text-gray-600">
+                            Already have an account?
+                            <a href="/login" className="text-blue-600 hover:text-blue-800 font-semibold ml-1">
+                                Login now
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

@@ -62,6 +62,7 @@ function Login() {
 
         if (!email || !password) {
             toast.error("All the fields are required to be filled!");
+            setLoading(false);
             return;
         }
 
@@ -114,7 +115,7 @@ function Login() {
             {loading ? <Loader /> : <p></p>}
             <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 sm:p-10">
                 <form className="w-full" onSubmit={handleLogin}>
-                    <h1 className="text-4xl font-extrabold text-black mb-8 drop-shadow-lg text-center sm:text-left">LogIn</h1>
+                    <h1 className="text-5xl font-extrabold text-black mb-8 drop-shadow-lg text-center sm:text-left">LogIn</h1>
                     <div className="grid grid-cols-1 gap-6">
                         <ToastContainer />
                         <div className="relative w-full">
@@ -132,6 +133,7 @@ function Login() {
                             />
                             {emailError && <p className="text-red text-sm mt-1">Invalid email format</p>}
                         </div>
+
                         <div className="relative w-full">
                             <TbLockPassword
                                 className="absolute inset-y-3.5 left-2 flex items-center text-gray-400"
@@ -154,7 +156,6 @@ function Login() {
                             >
                                 {showPassword ? <BiShowAlt size={20} /> : <BiHide size={20} />}
                             </button>
-
                         </div>
 
                         <div className="flex items-center justify-start gap-2 ml-2">
