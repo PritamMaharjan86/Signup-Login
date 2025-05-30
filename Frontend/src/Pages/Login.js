@@ -41,6 +41,7 @@ function Login() {
         }
     }, []);
 
+
     const validateEmailInput = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email) {
@@ -130,6 +131,7 @@ function Login() {
                                 id="email"
                                 placeholder="Enter your email"
                                 onChange={handleChange}
+                                value={login.email}
                             />
                             {emailError && <p className="text-red text-sm mt-1">Invalid email format</p>}
                         </div>
