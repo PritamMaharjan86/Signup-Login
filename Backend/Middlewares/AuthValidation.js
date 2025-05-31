@@ -9,7 +9,7 @@ const signupValidation = (req, res, next) => {
                 'any.required': 'Name is required.'
             }),
         email: Joi.string().email().required()
-            .messages({ 
+            .messages({
                 'string.email': 'Email must be a valid email address.',
                 'any.required': 'Email is required.'
             }),
@@ -24,7 +24,7 @@ const signupValidation = (req, res, next) => {
     const { error } = schema.validate(req.body, { abortEarly: false });
     if (error) {
         return res.status(400).json({
-            message: error.details.map(err => err.message),
+            message: 'Validation Failed',
             errors: error.details.map(err => err.message)
         });
     }
@@ -50,7 +50,7 @@ const loginValidation = (req, res, next) => {
     const { error } = schema.validate(req.body, { abortEarly: false });
     if (error) {
         return res.status(400).json({
-            message: error.details.map(err => err.message),
+            message: 'Validation Failed',
             errors: error.details.map(err => err.message)
         });
     }
