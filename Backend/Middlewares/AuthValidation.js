@@ -39,10 +39,12 @@ const loginValidation = (req, res, next) => {
                 'string.email': 'Email must be a valid email address.',
                 'any.required': 'Email is required.'
             }),
-        password: Joi.string().min(8).max(20).required()
+        password: Joi.string()
+            .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?#&])[A-Za-z\\d@$!%*?#&]{8,}$'))
+            .required()
             .messages({
-                'string.min': 'Password must be at least 8 characters long.',
-                'string.max': 'Password cannot exceed 20 characters.',
+                'string.pattern.base': 'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.',
+                'string.empty': 'Password is required.',
                 'any.required': 'Password is required.'
             }),
     });
