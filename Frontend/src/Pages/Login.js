@@ -93,17 +93,14 @@ function Login() {
 
                 }, 1000);
             } else {
-                if (message) {
-                    toast.warning(message);
-                    setLoading(false);
-                } else if (error && error.details) {
-                    const details = error.details[0].message;
-                    toast.error(details);
-                    setLoading(false);
+                if (result.errors && Array.isArray(result.errors)) {
+                    result.errors.forEach(msg => toast.error(msg));
+                } else if (result.message) {
+                    toast.warning(result.message);
                 } else {
                     toast.error("Something went wrong. Please try again.");
-                    setLoading(false);
                 }
+                setLoading(false);
             }
         } catch (err) {
             toast.error("Something went wrong!");
