@@ -77,7 +77,7 @@ function Login() {
                 body: JSON.stringify(login),
             });
             const result = await response.json();
-            const { success, error, jwtToken, name, message } = result;
+            const { success, jwtToken, name } = result;
             if (success) {
                 toast.success("Access Granted");
 
@@ -94,13 +94,13 @@ function Login() {
                 }, 1000);
             } else {
                 if (result.errors && Array.isArray(result.errors)) {
-                    result.errors.forEach(msg => toast.error(msg));
-                } else if (result.message) {
-                    toast.warning(result.message);
-                } else {
-                    toast.error("Something went wrong. Please try again.");
-                }
-                setLoading(false);
+                                    result.errors.forEach(msg => toast.error(msg));
+                                } else if (result.message) {
+                                    toast.warning(result.message);
+                                } else {
+                                    toast.error("Something went wrong. Please try again.");
+                                }
+                                setLoading(false);
             }
         } catch (err) {
             toast.error("Something went wrong!");

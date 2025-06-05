@@ -53,7 +53,7 @@ function SignUp() {
 
             });
             const result = await response.json();
-            const { success, error, message } = result;
+            const { success } = result;
             if (success) {
                 toast.success("Access Granted");
                 setLoading(false);
