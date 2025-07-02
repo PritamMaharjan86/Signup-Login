@@ -86,11 +86,11 @@ function SignUp() {
 
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-yellow-100 p-4">
 
             {loading ? <Loader /> : <p></p>}
             <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 sm:p-10">
-                <h1 className="text-5xl font-extrabold text-black mb-2 drop-shadow-lg text-center sm:text-left">
+                <h1 className="text-5xl font-extrabold text-yellow-400 mb-2 text-center sm:text-left drop-shadow-[2px_2px_0_#000]">
                     Signup
                 </h1>
 
@@ -106,7 +106,7 @@ function SignUp() {
                                 size={20}
                             />
                             <input
-                                className={`block w-full pl-10 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
+                                className={`block w-full pl-10 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-yellow-400 focus:border-yellow-400`}
                                 type="text"
                                 id="name"
                                 autofocus
@@ -122,7 +122,7 @@ function SignUp() {
                                 size={20}
                             />
                             <input
-                                className={`block w-full pl-10 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
+                                className={`block w-full pl-10 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-yellow-400 focus:border-yellow-400`}
                                 type="email"
                                 id="email"
                                 placeholder="Enter your email"
@@ -139,7 +139,7 @@ function SignUp() {
                                 size={20}
                             />
                             <input
-                                className="block w-full pl-10 border-b-4 p-3 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
+                                className="block w-full pl-10 border-b-4 p-3 rounded-md shadow-sm focus:outline-none focus:ring-yellow-400 focus:border-yellow-400 text-base"
                                 type={showPassword ? 'text' : 'password'}
                                 id="password"
                                 placeholder="Enter your password"
@@ -161,7 +161,7 @@ function SignUp() {
                         <div className="flex justify-center sm:justify-start mt-4 mb-4">
                             <button
                                 onSubmit={handleSignup}
-                                className="bg-blue-500 text-white font-bold px-6 py-3 rounded-3xl shadow-lg flex items-center gap-2 hover:from-blue-600 hover:to-blue-700 transition"
+                                className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-3xl shadow-lg flex items-center gap-2 hover:from-yellow-500 hover:to-yellow-600 transition"
                             >
                                 <span>SignUp</span>
                                 <FaLongArrowAltRight size={18} />
@@ -172,7 +172,7 @@ function SignUp() {
                     <div className="mt-4 text-center">
                         <p className="text-sm text-gray-600">
                             Already have an account?
-                            <a href="/login" className="text-blue-600 hover:text-blue-800 font-semibold ml-1">
+                            <a href="/login" className="text-yellow-400 hover:text-yellow-600 font-semibold ml-1">
                                 Login now
                             </a>
                         </p>

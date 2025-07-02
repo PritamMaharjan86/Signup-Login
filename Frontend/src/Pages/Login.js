@@ -94,13 +94,13 @@ function Login() {
                 }, 1000);
             } else {
                 if (result.errors && Array.isArray(result.errors)) {
-                                    result.errors.forEach(msg => toast.error(msg));
-                                } else if (result.message) {
-                                    toast.warning(result.message);
-                                } else {
-                                    toast.error("Something went wrong. Please try again.");
-                                }
-                                setLoading(false);
+                    result.errors.forEach(msg => toast.error(msg));
+                } else if (result.message) {
+                    toast.warning(result.message);
+                } else {
+                    toast.error("Something went wrong. Please try again.");
+                }
+                setLoading(false);
             }
         } catch (err) {
             toast.error("Something went wrong!");
@@ -109,11 +109,13 @@ function Login() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-yellow-100  p-4">
             {loading ? <Loader /> : <p></p>}
             <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 sm:p-10">
                 <form className="w-full" onSubmit={handleLogin}>
-                    <h1 className="text-5xl font-extrabold text-black mb-8 drop-shadow-lg text-center sm:text-left">LogIn</h1>
+                    <h1 className="relative text-5xl font-extrabold text-yellow-400 mb-8 text-center sm:text-left drop-shadow-[2px_2px_0_#000]">
+                        LogIn
+                    </h1>
                     <div className="grid grid-cols-1 gap-6">
                         <ToastContainer />
                         <div className="relative w-full">
@@ -122,7 +124,7 @@ function Login() {
                                 size={20}
                             />
                             <input
-                                className={`block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${emailError ? 'border-red-500' : validateEmail ? 'border-green-500' : 'border-gray-300'
+                                className={`block w-full pl-8 border-b-4 p-2 rounded-md shadow-sm focus:outline-none focus:ring-yellow-400 focus:border-yellow-400 ${emailError ? 'border-red-500' : validateEmail ? 'border-green-500' : 'border-gray-300'
                                     }`}
                                 type="email"
                                 id="email"
@@ -139,7 +141,7 @@ function Login() {
                                 size={20}
                             />
                             <input
-                                className="block w-full pl-10 border-b-4 p-3 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base"
+                                className="block w-full pl-10 border-b-4 p-3 rounded-md shadow-sm focus:outline-none focus:ring-yellow-400 focus:border-yellow-400 text-base"
                                 type={showPassword ? 'text' : 'password'}
                                 id="password"
                                 placeholder="Enter your password"
@@ -163,16 +165,16 @@ function Login() {
                                 id="remember"
                                 checked={remember}
                                 onChange={() => setRemember(!remember)}
-                                className="accent-green w-fit"
+                                className="accent-yellow-400 w-fit"
                             />
                             <label htmlFor="remember" className="text-md text-gray-600">Remember me</label>
                         </div>
 
 
-                        <div className="flex justify-center sm:justify-start">
+                        <div className="flex justify-center sm:justify-start ">
                             <button
                                 type="submit"
-                                className="bg-blue-500 text-white font-bold px-6 py-3 rounded-3xl shadow-lg flex items-center gap-2 hover:from-blue-600 hover:to-blue-700 transition"
+                                className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-3xl shadow-lg flex items-center gap-2 hover:from-yellow-500 hover:to-yellow-600 transition"
                             >
                                 <span>Login</span>
                                 <FaLongArrowAltRight size={18} />
@@ -180,12 +182,12 @@ function Login() {
                         </div>
                     </div>
 
-                    <div className="mt-4 text-start">
+                    <div className="mt-8 text-center">
                         <p className="text-sm text-gray-600">
                             Don't have an account?
                             <a
                                 href="/signup"
-                                className="text-blue-600 hover:text-blue-800 font-semibold ml-1"
+                                className="text-yellow-400 hover:text-yellow-600 font-semibold ml-1"
                             >
                                 Create new account
                             </a>
