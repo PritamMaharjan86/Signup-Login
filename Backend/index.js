@@ -13,7 +13,7 @@ const corsConfig = {
 
 require('dotenv').config();
 require('./Models/Database');
-
+app.use(cors());
 app.use(express.json()); 
 
 app.get('/server', (req, res) => {
