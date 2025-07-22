@@ -19,7 +19,7 @@
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.2",
-    "nodemailer": "^6.9.15"
+    "nodemailer": "^6.10.1"
   },
   "devDependencies": {
     "dotenv-cli": "^7.4.2",

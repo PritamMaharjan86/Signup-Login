@@ -68,7 +68,7 @@ function Login() {
         }
 
         try {
-            const url = 'https://signup-backend-2lfg.onrender.com/auth/login';
+            const url = 'http://localhost:3001/auth/login';
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -77,13 +77,14 @@ function Login() {
                 body: JSON.stringify(login),
             });
             const result = await response.json();
-            const { success, jwtToken, name } = result;
+            const { success, jwtToken, name, email } = result;
             if (success) {
                 toast.success("Access Granted");
 
                 setTimeout(() => {
                     localStorage.setItem('token', jwtToken);
                     localStorage.setItem('loggedIn', name);
+                    localStorage.setItem('email', email);
                     navigate('/home');
                     if (remember) {
                         localStorage.setItem('rememberedEmail', email);

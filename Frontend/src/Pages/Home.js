@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import AutoLogOff from '../Components/AutoLogOff';
+import DeleteAccount from '../Components/DeleteAccount';
 
 function Home() {
     const [loggedIn, setLoggedIn] = useState('');
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
         setLoggedIn(localStorage.getItem('loggedIn'));
+        setEmail(localStorage.getItem('email'));
 
     }, []);
 
@@ -34,6 +37,11 @@ function Home() {
             >
                 Logout
             </button>
+            <div className="mt-6">
+                {loggedIn && (
+                    <DeleteAccount email={email} />
+                )}
+            </div>
         </div>
     );
 }
