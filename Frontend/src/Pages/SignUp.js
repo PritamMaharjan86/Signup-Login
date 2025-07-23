@@ -43,7 +43,7 @@ function SignUp() {
         }
 
         try {
-            const url = 'https://signup-backend-2lfg.onrender/auth/signup';
+            const url = 'https://signup-backend-2lfg.onrender.com/auth/signup';
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
