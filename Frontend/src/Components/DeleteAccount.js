@@ -5,13 +5,20 @@ function DeleteAccount({ email }) {
 
 
     const handleDelete = async () => {
+
+        const confirmed = window.confirm("Are you sure you want to delete your account?");
+        if (!confirmed) return;
+
+        const secondConfirm = window.confirm("This action is permanent. Confirm again to delete.");
+        if (!secondConfirm) return;
+
         if (!email) {
             toast.error("Email is missing.");
             return;
         }
 
         try {
-            const res = await fetch("http://localhost:3001/auth/delete-account", {
+            const res = await fetch("https://signup-backend-2lfg.onrender/auth/delete-account", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
