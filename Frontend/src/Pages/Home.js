@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import AutoLogOff from '../Components/AutoLogOff';
 import DeleteAccount from '../Components/DeleteAccount';
+import ChangePassword from '../Components/ChangePassword';
 
 function Home() {
     const [loggedIn, setLoggedIn] = useState('');
@@ -41,6 +42,7 @@ function Home() {
                 {loggedIn && (
                     <DeleteAccount email={email} />
                 )}
+                <ChangePassword email={email} />
             </div>
         </div>
     );

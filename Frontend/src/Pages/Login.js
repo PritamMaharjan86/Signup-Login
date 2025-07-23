@@ -68,7 +68,7 @@ function Login() {
         }
 
         try {
-            const url = 'https://signup-backend-2lfg.onrender.com/auth/login';
+            const url = 'http://localhost:3001/auth/login';
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
