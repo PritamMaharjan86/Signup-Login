@@ -11,7 +11,7 @@ function DeleteAccount({ email }) {
         }
 
         try {
-            const res = await fetch("http://localhost:3001/auth/delete-account", {
+            const res = await fetch("https://signup-backend-2lfg.onrender.com/auth/delete-account", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

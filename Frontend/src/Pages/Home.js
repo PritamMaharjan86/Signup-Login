@@ -1,49 +1,44 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import AutoLogOff from '../Components/AutoLogOff';
-import DeleteAccount from '../Components/DeleteAccount';
-import ChangePassword from '../Components/ChangePassword';
+import ProfileManager from '../Components/ProfileManager';
 
 function Home() {
     const [loggedIn, setLoggedIn] = useState('');
     const [email, setEmail] = useState('');
-    const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
-        setLoggedIn(localStorage.getItem('loggedIn'));
-        setEmail(localStorage.getItem('email'));
-
-    }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('loggedIn');
-        toast.success("Logging out!");
-        setTimeout(() => {
-            navigate('/login');
-        }, 1000);
+    const toggleDropdown = () => {
+        setIsOpen(prev => !prev);
     };
 
+    useEffect(() => {
+        setEmail(localStorage.getItem('email'));
+        setLoggedIn(localStorage.getItem('loggedIn'));
+    }, []);
+
+
     return (
-        <div className="flex flex-col items-start justify-start min-h-screen bg-gray-100 m-5">
-            <h1 className="text-xl font-bold text-gray-800 mb-4">
-                Welcome, {loggedIn}
-            </h1>
+        <div className="flex flex-col items-start justify-start p-2">
+            <div className='flex flex-row justify-center items-center'>
+
+                <button onClick={toggleDropdown}>
+                    <img
+                        className='w-12 h-12'
+                        src='https://res.cloudinary.com/dedpvue13/image/upload/v1753342651/avatar_s3hqft.avif'
+                        alt='Avatar'
+                    />
+                </button>
+
+                <h1 className="text-xl font-bold text-gray-800 mb-2 m-2">Welcome, {loggedIn}</h1>
+
+            </div>
+
+
+            <ProfileManager isOpen={isOpen} toggleDropdown={toggleDropdown} email={email} />
+
             <AutoLogOff />
             <ToastContainer />
-            <button
-                onClick={handleLogout}
-                className="px-2 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300"
-            >
-                Logout
-            </button>
-            <div className="mt-6">
-                {loggedIn && (
-                    <DeleteAccount email={email} />
-                )}
-                <ChangePassword email={email} />
-            </div>
         </div>
     );
 }
