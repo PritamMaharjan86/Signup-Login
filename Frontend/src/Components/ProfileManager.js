@@ -21,7 +21,11 @@ const ProfileManager = ({ isOpen, toggleDropdown }) => {
       `}
         >
             <div className="p-4 flex justify-between items-center border-b border-gray-700">
-                <p className="text-lg font-bold text-white">Welcome, {loggedIn}</p>
+                <img
+                    className='w-10 h-10 rounded-full'
+                    src='https://res.cloudinary.com/dedpvue13/image/upload/v1753342651/avatar_s3hqft.avif'
+                    alt='Avatar'
+                />    <p className="text-lg font-bold text-white">Welcome, {loggedIn}</p>
                 <button
                     onClick={toggleDropdown}
                     className="text-white text-xl hover:text-red-500"
