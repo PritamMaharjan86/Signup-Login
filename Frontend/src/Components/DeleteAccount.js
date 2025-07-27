@@ -1,5 +1,7 @@
 import React from "react";
 import { toast } from 'react-toastify';
+import { AiOutlineUserDelete } from "react-icons/ai";
+
 
 function DeleteAccount({ email }) {
 
@@ -39,12 +41,15 @@ function DeleteAccount({ email }) {
     };
 
     return (
-        <button
-            onClick={handleDelete}
-            className="bg-red-600 text-white px-4 py-2 mt-4 rounded hover:bg-red-700"
-        >
-            Delete Account
-        </button>
+        <div className="mt-4">
+            <button
+                onClick={handleDelete}
+                className="text-white flex items-center gap-3"
+            >
+                <AiOutlineUserDelete />
+                Delete Account
+            </button>
+        </div>
     );
 }
 

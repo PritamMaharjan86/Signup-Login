@@ -3,20 +3,13 @@ import { ToastContainer } from 'react-toastify';
 import AutoLogOff from '../Components/AutoLogOff';
 import ProfileManager from '../Components/ProfileManager';
 
-function Home() {
-    const [loggedIn, setLoggedIn] = useState('');
-    const [email, setEmail] = useState('');
+function Home({email}) {
+
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsOpen(prev => !prev);
     };
-
-    useEffect(() => {
-        setEmail(localStorage.getItem('email'));
-        setLoggedIn(localStorage.getItem('loggedIn'));
-    }, []);
-
 
     return (
         <div className="flex flex-col items-start justify-start p-2">
@@ -29,8 +22,6 @@ function Home() {
                         alt='Avatar'
                     />
                 </button>
-
-                <h1 className="text-xl font-bold text-gray-800 mb-2 m-2">Welcome, {loggedIn}</h1>
 
             </div>
 

@@ -1,30 +1,40 @@
+import { useState, useEffect } from 'react';
 import DeleteAccount from '../Components/DeleteAccount';
 import ChangePassword from '../Components/ChangePassword';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import Logout from '../Components/Logout';
 
-const ProfileManager = ({ isOpen, email }) => {
-    const navigate = useNavigate();
+const ProfileManager = ({ isOpen, toggleDropdown }) => {
+    const [loggedIn, setLoggedIn] = useState('');
+    const [email, setEmail] = useState('');
 
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('loggedIn');
-        toast.success("Logging out!");
-        setTimeout(() => {
-            navigate('/login');
-        }, 1000);
-    };
+    useEffect(() => {
+        setEmail(localStorage.getItem('email'));
+        setLoggedIn(localStorage.getItem('loggedIn'));
+    }, []);
 
     return (
-        <div className='w-1/5'>
+        <div
+            className={`
+        fixed top-0 left-0 h-full w-72 bg-black shadow-lg border-r border-gray-600 z-50 rounded-tr-xl rounded-br-xl
+        transform transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}
+        >
+            <div className="p-4 flex justify-between items-center border-b border-gray-700">
+                <p className="text-lg font-bold text-white">Welcome, {loggedIn}</p>
+                <button
+                    onClick={toggleDropdown}
+                    className="text-white text-xl hover:text-red-500"
+                >
+                    ✕
+                </button>
+            </div>
 
-            {isOpen && (
-                <div className="mt-6 bg-white shadow-lg p-4 rounded-lg border border-gray-200">
-                    <p><DeleteAccount email={email} /></p>
-                    <p><ChangePassword email={email} /></p>
-                    <p> <button onClick={handleLogout} className="bg-green-500 text-white px-4 py-2 mt-4 rounded hover:bg-green-600"> Logout</button></p>
-                </div>
-            )}
+            <div className="p-4 text-white">
+                <div className="mb-4"><DeleteAccount email={email} /></div>
+                <div className="mb-4"><ChangePassword email={email} /></div>
+                <div><Logout /></div>
+            </div>
         </div>
     );
 };

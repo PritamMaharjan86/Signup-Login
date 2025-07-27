@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { BiHide, BiShowAlt } from "react-icons/bi";
+import { RiLockPasswordLine } from "react-icons/ri";
+
 
 function ChangePassword({ email }) {
     const [oldPassword, setOldPassword] = useState("");
@@ -49,7 +51,8 @@ function ChangePassword({ email }) {
     return (
         <div className="mt-4">
 
-            <button className="bg-blue-600 text-white px-4 py-2 mt-2 rounded hover:bg-blue-700" onClick={togglePassword} >Change Password</button>
+            <button className="text-white flex items-center gap-3" onClick={togglePassword} > <RiLockPasswordLine />
+                Change Password</button>
 
             {isOpen && (
                 <div className="mt-6 bg-white shadow-lg p-4 rounded-lg border border-gray-200">
